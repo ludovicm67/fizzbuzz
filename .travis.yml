@@ -1,2 +1,12 @@
 language: java
 sudo: false
+
+jdk:
+  - oraclejdk8 
+
+install:
+  - gradle assemble
+
+script:
+  - gradle check
+  - javadoc -private -sourcepath "src/main/java:src/test/java" -d doc/ fr.unistra.fizzbuzz
