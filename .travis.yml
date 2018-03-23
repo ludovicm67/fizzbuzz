@@ -10,3 +10,12 @@ install:
 script:
   - gradle check
   - javadoc -private -sourcepath "src/main/java:src/test/java" -d doc/ fr.unistra.fizzbuzz
+
+deploy:
+  provider: pages
+  local-dir: doc
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
